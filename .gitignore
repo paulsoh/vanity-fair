@@ -63,3 +63,6 @@ target/
 
 #autoenv .env
 .env
+
+# vim backup files
+*.sw[po]
