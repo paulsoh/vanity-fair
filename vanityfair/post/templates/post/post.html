@@ -8,13 +8,10 @@ Observe posts
 <h1>Post list</h1>
 
 <div class="row">
-{% for post in posts %}
-<div class="col s6 m4">
+<div class="col s8 push-s2">
 <div class="card">
     <div class="card-image">
-        {% if post.image %}
         <img class="responsive-img card-image" src={{post.image.url}} alt="{{post.content}}"/>
-        {% endif %}
         <span class="card-title">
             Shared by {{ post.user.username }}
         </span>
@@ -30,6 +27,5 @@ Observe posts
     </div>
 </div>
 </div>
-{% endfor %}
 </div>
 {% endblock %}
