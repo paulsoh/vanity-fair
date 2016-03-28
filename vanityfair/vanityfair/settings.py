@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'vanityfair',
     'user',
     'post',
+    'tag',
 ]
 
 MIDDLEWARE_CLASSES = [
