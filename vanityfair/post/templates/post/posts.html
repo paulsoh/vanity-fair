@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+Observe posts
+{% endblock %}
+
+{% block content %}
+<h1>Post list</h1>
+{% for post in posts %}
+<div>
+    {{ post.image }}
+    {{ post.content }}
+</div>
+{% endfor %}
+{% endblock %}
