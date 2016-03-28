@@ -1,13 +1,13 @@
 from django.db import models
+from django.conf import settings
 
-from user.models import User
 from tag.models import Tag
 
 
 class Post(models.Model):
 
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
     )
 
     image = models.ImageField(
@@ -36,6 +36,12 @@ class Post(models.Model):
         Tag,
         blank=True,
         null=True,
+    )
+
+    like_user_set = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='like_post_set',
+        through='Like',
     )
 
     def generate_hash_id(self):
