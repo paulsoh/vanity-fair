@@ -1,6 +1,7 @@
 from django.db import models
 
 from user.models import User
+from tag.models import Tag
 
 
 class Post(models.Model):
@@ -29,6 +30,12 @@ class Post(models.Model):
 
     updated_at = models.DateTimeField(
         auto_now=True,
+    )
+
+    tag_set = models.ManyToManyField(
+        Tag,
+        blank=True,
+        null=True,
     )
 
     def generate_hash_id(self):
