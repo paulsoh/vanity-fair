@@ -49,6 +49,9 @@ class Post(models.Model):
         self.hash_id = get_hash_id(self)
         self.save()
 
+    def __str__(self):
+        return self.content
+
     class Meta:
         verbose_name = "포스트"
         verbose_name_plural = verbose_name
