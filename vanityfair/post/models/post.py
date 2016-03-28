@@ -9,8 +9,9 @@ class Post(models.Model):
         User,
     )
 
-    title = models.CharField(
-        max_length=40,
+    image = models.ImageField(
+        blank=True,
+        null=True,
     )
 
     content = models.TextField()
