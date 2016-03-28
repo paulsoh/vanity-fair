@@ -1,13 +1,13 @@
 from django.db import models
 
-from user.models import User
+from django.conf import settings
 from post.models import Post
 
 
 class Comment(models.Model):
 
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL, 
     )
 
     post = models.ForeignKey(
