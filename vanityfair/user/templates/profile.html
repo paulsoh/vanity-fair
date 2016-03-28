@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+{{ request.user.username }}'s Profile
+{% endblock %}
+{% block content %}
+
+{{ request.user.username }}'s Profile
+
+<h1>My posts</h1>
+<h1>My likes</h1>
+
+{% endblock %}
