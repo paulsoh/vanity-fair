@@ -13,11 +13,12 @@ class SignupTemplateView(TemplateView):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = User.objects.create_user(
-            username=username,
-            password=password,
-        )
-
+        if not User.objects.filter(username=username).exists():
+            user = User.objects.create_user(
+                username=username,
+                password=password,
+            )
+        
         user = authenticate(
             username=username,
             password=password,
