@@ -6,4 +6,4 @@ class PostAppConfig(AppConfig):
     name = "post"
 
     def ready(self):
-        pass
+        from post.signals import post_save

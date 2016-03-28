@@ -13,7 +13,7 @@ class Post(models.Model):
         blank=True,
         null=True,
     )
-    
+
     hash_id = models.CharField(
         max_length=8,
         blank=True,
