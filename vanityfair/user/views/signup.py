@@ -18,7 +18,7 @@ class SignupTemplateView(TemplateView):
                 username=username,
                 password=password,
             )
-        
+
         user = authenticate(
             username=username,
             password=password,
