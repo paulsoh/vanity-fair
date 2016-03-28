@@ -8,5 +8,3 @@ def get_hash_id(instance):
     )
     hash_id = hashid_object.encode(instance.id)
     return hash_id
-    
-
