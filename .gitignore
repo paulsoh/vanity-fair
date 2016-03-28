@@ -66,3 +66,6 @@ target/
 
 # vim backup files
 *.sw[po]
+
+# db related
+db.sqlite3
