@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 
+
 class LoginTemplateView(TemplateView):
 
     template_name = "login.html"
