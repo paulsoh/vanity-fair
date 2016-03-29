@@ -39,8 +39,14 @@ Observe posts
 <div class="row">
     <div class="col s8 push-s2">
         <div id="comment" data-post-id="{{post.id}}"> Comments </div>
+            <p>Commented by {{request.user.username }}</p>
+            <textarea name="content"></textarea>
+            <input id="submit" class="submit" type="submit" value="Share comment">
     </div>
 </div>
+
+
+
 {% endblock %}
 
 {% block js %}
