@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+Observe posts
+{% endblock %}
+
+{% block content %}
+<h1>Post list</h1>
+
+<div class="row">
+{% for post in posts %}
+<div class="col s6 m4">
+<div class="card">
+    <div class="card-image">
+        {% if post.image %}
+        <img class="responsive-img card-image" src={{post.image.url}} alt="{{post.content}}"/>
+        {% endif %}
+        <span class="card-title">
+            Shared by {{ post.user.username }}
+        </span>
+    </div>
+    <div class="card-content">
+        <p>{{ post.content }}</p>
+    </div>
+    <div class="card-action">
+        <p>Liked by {{ post.like_user_set.count }}</p>
+        <p>
+        <a href="">LIKE!!</a>
+        </p>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
