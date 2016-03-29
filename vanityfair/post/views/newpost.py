@@ -15,7 +15,11 @@ class PostCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        tags = self.request.POST.get('tags').split()
+        tags = [
+            tag[1::] for tag
+            in self.request.POST.get('content').split()
+            if tag.startswith("#")
+        ]
         form.instance._tags = tags
         form.instance.image = self.request.FILES['image']
         return super(PostCreateView, self).form_valid(form)
