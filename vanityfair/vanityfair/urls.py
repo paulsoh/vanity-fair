@@ -21,6 +21,7 @@ urlpatterns = [
 
 
     url(r'^tags/$', TagListView.as_view(), name="tags"),
+    url(r'^tags/(?P<slug>\w+)/$', TagDetailView.as_view(), name="tags-detail"),
 
     url(r'^profile/', ProfileTemplateView.as_view(), name="profile"),
     url(r'^logout/', LogoutView.as_view(), name="logout"),
