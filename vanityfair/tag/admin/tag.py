@@ -8,5 +8,4 @@ class TagModelAdmin(admin.ModelAdmin):
 
     list_display = admin.ModelAdmin.list_display + (
         'name',
-        'post',
     )

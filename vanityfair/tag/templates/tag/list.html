@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+Tags
+{% endblock %}
+
+{% block content %}
+<h1>Tags list</h1>
+
+<div class="row">
+{% for tag in tags %}
+<div class="col s6 m4">
+    <div class="card">
+        <p>
+        {{ tag.name }}
+        </p>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
