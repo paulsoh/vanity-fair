@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block title %}  
 Observe posts
 {% endblock %}
@@ -33,4 +35,15 @@ Observe posts
 </div>
 </div>
 </div>
+
+<div class="row">
+    <div class="col s8 push-s2">
+        <div id="comment" data-post-id="{{post.id}}"> Comments </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="{% static "vanityfair/js/detail.js" %}" type="text/javascript"></script>
 {% endblock %}
