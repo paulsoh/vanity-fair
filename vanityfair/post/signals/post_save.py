@@ -11,6 +11,7 @@ def post_save_post(sender, instance, created, **kwargs):
         instance.generate_hash_id()
 
     tags = getattr(instance, '_tags', None)
-    for tag in tags:
-        tag_name, created = Tag.objects.get_or_create(name=tag)
-        instance.tag_set.add(tag_name)
+    if tags:
+        for tag in tags:
+            tag_name, created = Tag.objects.get_or_create(name=tag)
+            instance.tag_set.add(tag_name)
