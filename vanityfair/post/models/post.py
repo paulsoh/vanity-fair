@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
 
 from tag.models import Tag
 
@@ -55,3 +56,11 @@ class Post(models.Model):
     class Meta:
         verbose_name = "포스트"
         verbose_name_plural = verbose_name
+
+    def get_absolute_url(self):
+        return reverse(
+            'post',
+            kwargs={
+                'pk': self.id,
+            }
+        )

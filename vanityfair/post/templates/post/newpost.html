@@ -7,5 +7,14 @@ Create posts
 {% block content %}
 
 <h1>Create post</h1>
-
+<form action="{% url "new-post" %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<p>Post Content</p>
+<input type="text" class="text" value="" name="content">
+<p>Post image</p>
+<input type="file" class="file" accept="image/*" name="image">
+<p>Tag this post</p>
+<input type="text" class="text" value="" name="tags">
+<input type="submit" class="submit" value="Post!" name="">
+</form>
 {% endblock %}
