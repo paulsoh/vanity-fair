@@ -12,7 +12,9 @@ Tags
 <div class="col s6 m4">
     <div class="card">
         <p>
-        {{ tag.name }}
+            <a href="{% url 'tags-detail' tag.name %}">
+                {{ tag.name }}
+            </a>
         </p>
     </div>
 </div>
