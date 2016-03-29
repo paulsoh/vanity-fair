@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+{{ request.user.username }}'s Profile
+{% endblock %}
+{% block content %}
+
+{{ request.user.username }}'s Profile
+
+<h1>My posts</h1>
+{% for post in request.user.post_set.all %}
+<div>
+    {{ post.created_at }}
+    <a href="">{{ post.content }}</a>
+    {{ post.like_user_set.count }}
+</div>
+{% endfor %}
+<h1>My likes</h1>
+{% for post in request.user.like_post_set.all %}
+<div>
+    {{ post.created_at }}
+    <a href="">{{ post.content }}</a>
+</div>
+{% endfor %}
+{% endblock %}

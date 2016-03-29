@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Vanity Fair</title>
+    <link href="{% static "vanityfair/css/materialize.min.css" %}" rel="stylesheet">
+    <link href="{% static "vanityfair/css/main.css" %}" rel="stylesheet">
+</head>
+<body> 
+    {% include 'partials/header.html' %}
+    <main id="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>
