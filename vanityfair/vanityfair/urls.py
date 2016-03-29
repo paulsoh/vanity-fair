@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^$', HomeTemplateView.as_view(), name="home"),
 
     url(r'^posts/$', PostListView.as_view(), name="posts"),
-    url(r'^posts/new/$', HomeTemplateView.as_view(), name="new-post"),
+    url(r'^posts/new/$', PostCreateView.as_view(), name="new-post"),
     url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="post"),
     url(r'^post/(?P<pk>\d+)/like/$', HomeTemplateView.as_view(), name="like"),
 
