@@ -18,6 +18,11 @@ Observe posts
     </div>
     <div class="card-content">
         <p>{{ post.content }}</p>
+        <p>
+        {% for tag in post.tag_set.all %}
+        {{ tag  }}
+        {% endfor %}
+        </p>
     </div>
     <div class="card-action">
         <p>Liked by {{ post.like_user_set.count }}</p>
