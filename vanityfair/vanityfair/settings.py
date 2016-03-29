@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'debug_toolbar',
+    'rest_framework',
 
     'vanityfair',
     'user',
@@ -96,6 +97,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

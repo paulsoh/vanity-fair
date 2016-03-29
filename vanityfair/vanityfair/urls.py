@@ -8,6 +8,7 @@ from user.views import *
 from post.views import *
 from tag.views import *
 
+from api.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +28,6 @@ urlpatterns = [
     url(r'^logout/', LogoutView.as_view(), name="logout"),
     url(r'^login/', LoginTemplateView.as_view(), name="login"),
     url(r'^signup/', SignupTemplateView.as_view(), name="signup"),
+
+    url(r'^api/posts/(?P<pk>\d+)/comments/$', CommentAPIView.as_view(), name="comments"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
