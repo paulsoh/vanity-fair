@@ -9,6 +9,16 @@ class User(AbstractUser):
         null=True,
     )
 
+    follows = models.ManyToManyField(
+        "self",
+        related_name="followed_by",
+        symmetrical=False,
+        through="Follow",
+        through_fields=(
+            'following_user', 'followed_user'
+        )
+    )
+
     description = models.TextField()
 
     created_at = models.DateTimeField(
