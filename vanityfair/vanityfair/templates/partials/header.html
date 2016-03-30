@@ -1,0 +1,33 @@
+<header id="header">
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'posts' %}">View photos</a>
+            </li>
+            <li>
+                <a href="{% url 'new-post' %}">Upload post</a>
+            </li>
+            <li>
+                <a href="{% url 'tags' %}">Explore tags</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'profile' %}">View my profile</a>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">Log out</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">Log in</a>
+            </li>
+            <li>
+                <a href="{% url 'signup' %}">Sign up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
