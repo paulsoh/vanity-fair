@@ -19,7 +19,16 @@ Observe posts
         </span>
     </div>
     <div class="card-content">
-        <p>{{ post.content }}</p>
+        <p>
+            {% for word in post.get_content_by_word %}
+                {% if word in post.get_tags_by_word %}
+                <a href="{% url "tags-detail" word|slice:"1:" %}">{{word}}</a>
+                {% else %}
+                    {{word}}
+                {% endif %}
+
+            {% endfor %}
+        </p>
         <p>
         {% for tag in post.tag_set.all %}
         {{ tag  }}
@@ -40,7 +49,7 @@ Observe posts
     <div class="col s8 push-s2">
         <div id="comment" data-post-id="{{post.id}}"> Comments </div>
             <p>Commented by {{request.user.username }}</p>
-            <textarea name="content"></textarea>
+            <textarea id="comment" name="content" required></textarea>
             <input id="submit" class="submit" type="submit" value="Share comment">
     </div>
 </div>

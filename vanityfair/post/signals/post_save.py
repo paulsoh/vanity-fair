@@ -10,8 +10,15 @@ def post_save_post(sender, instance, created, **kwargs):
     if not instance.hash_id:
         instance.generate_hash_id()
 
-    tags = getattr(instance, '_tags', None)
-    if tags:
-        for tag in tags:
-            tag_name, created = Tag.objects.get_or_create(name=tag)
-            instance.tag_set.add(tag_name)
+
+@receiver(post_save, sender=Post)
+def post_save_tags(sender, instance, created, **kwargs):
+    tag_list = [
+        tag[1::] for tag
+        in instance.content.split()
+        if tag.startswith("#")
+    ]
+
+    for tag_name in tag_list:
+        tag_object, is_tag_created = Tag.objects.get_or_create(name=tag_name)
+        instance.tag_set.add(tag_object)
