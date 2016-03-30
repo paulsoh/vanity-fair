@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load staticfiles %}
+{% load tagify %}
 
 {% block title %}  
 Observe posts
@@ -20,19 +21,7 @@ Observe posts
     </div>
     <div class="card-content">
         <p>
-            {% for word in post.get_content_by_word %}
-                {% if word in post.get_tags_by_word %}
-                <a href="{% url "tags-detail" word|slice:"1:" %}">{{word}}</a>
-                {% else %}
-                    {{word}}
-                {% endif %}
-
-            {% endfor %}
-        </p>
-        <p>
-        {% for tag in post.tag_set.all %}
-        {{ tag  }}
-        {% endfor %}
+            {{ post.content | tagify | safe }}
         </p>
     </div>
     <div class="card-action">
