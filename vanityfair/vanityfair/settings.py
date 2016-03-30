@@ -30,10 +30,10 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
 
-    'vanityfair',
     'user',
-    'post',
     'tag',
+    'post',
+    'vanityfair',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -96,12 +96,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+"""
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     )
 }
+"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
