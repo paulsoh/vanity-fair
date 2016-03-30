@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load staticfiles %}
+{% load tagify %}
 
 {% block title %}  
 Observe posts
@@ -19,11 +20,8 @@ Observe posts
         </span>
     </div>
     <div class="card-content">
-        <p>{{ post.content }}</p>
         <p>
-        {% for tag in post.tag_set.all %}
-        {{ tag  }}
-        {% endfor %}
+            {{ post.content | tagify | safe }}
         </p>
     </div>
     <div class="card-action">
@@ -40,7 +38,7 @@ Observe posts
     <div class="col s8 push-s2">
         <div id="comment" data-post-id="{{post.id}}"> Comments </div>
             <p>Commented by {{request.user.username }}</p>
-            <textarea name="content"></textarea>
+            <textarea id="comment" name="content" required></textarea>
             <input id="submit" class="submit" type="submit" value="Share comment">
     </div>
 </div>

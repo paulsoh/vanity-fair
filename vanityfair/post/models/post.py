@@ -50,6 +50,11 @@ class Post(models.Model):
         self.hash_id = get_hash_id(self)
         self.save()
 
+    def get_content_by_word(self):
+        temp = self.content.split()
+        for word in temp:
+            yield word
+
     def __str__(self):
         return self.content
 
