@@ -15,7 +15,7 @@ SECRET_KEY = '7n*+kp0uy)usp&f)ax^0w)k!pf-ed65uq8lm)%^sgs@*upr3$f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['staging.doreee.com']
 
 
 # Application definition
