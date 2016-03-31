@@ -31,3 +31,4 @@ urlpatterns = [
 
     url(r'^api/posts/(?P<pk>\d+)/comments/$', CommentAPIView.as_view(), name="comments"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
++ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

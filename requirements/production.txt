@@ -4,3 +4,4 @@ hashids
 djangorestframework
 psycopg2
 dj-database-url
+raven

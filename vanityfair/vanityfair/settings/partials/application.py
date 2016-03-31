@@ -1,4 +1,5 @@
 import os
+import raven
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -78,3 +79,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+RAVEN_CONFIG = {
+    'dsn': 'https://d36f42c9de6349d2a3205f237c8d4349:acf548f681d14996a66af9e629a33a64@app.getsentry.com/72476',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+}
