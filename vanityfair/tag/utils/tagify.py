@@ -24,7 +24,7 @@ def get_tagify_content(content):
 
     for word in word_list:
         if word in ["#{tag_name}".format(tag_name=tag) for tag in tag_list]:
-            word = "<a href='{tag_url}'>{tag_name}".format(
+            word = "<a href='{tag_url}'>{tag_name}</a>".format(
                 tag_name=word,
                 tag_url=Tag.objects.get(name=word.replace("#", "")).get_absolute_url(),
             )
