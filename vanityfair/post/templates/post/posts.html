@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load shortener %}
+
 {% block title %}  
 Observe posts
 {% endblock %}
@@ -22,7 +24,7 @@ Observe posts
     <div class="card-content">
         <p>
             <a href="{% url 'post' post.id %}">
-                {{ post.content }}
+                {{ post.content | shortener }}
             </a>
         </p>
     </div>
