@@ -1,11 +1,15 @@
-{% load staticfiles %}
+{% load pipeline %}
 <!DOCTYPE html>
+{% stylesheet 'vendor' %}
+{% stylesheet 'main' %}
+{% javascript 'vendor' %}
+{% javascript 'main' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} | Vanity Fair</title>
-    <link href="{% static "vanityfair/css/materialize.min.css" %}" rel="stylesheet">
-    <link href="{% static "vanityfair/css/main.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 </head>
 <body> 
     {% include 'partials/header.html' %}
@@ -14,7 +18,5 @@
         {% endblock %}
     </main>
     {% include 'partials/footer.html' %}
-    {% block js %}
-    {% endblock %}
 </body>
 </html>

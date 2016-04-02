@@ -5,3 +5,6 @@ djangorestframework
 psycopg2
 dj-database-url
 raven
+django-pipeline
+django-storages-redux
+boto

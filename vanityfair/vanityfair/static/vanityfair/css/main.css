@@ -7,3 +7,15 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+* {
+    font: sans-serif;
+}
+
+header {
+    background: red;
+}
+
+footer {
+    background: blue;
+}
