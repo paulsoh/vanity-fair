@@ -2,7 +2,16 @@
 
 {% block title %}Homepage{% endblock %}
 {% block content %}
-This is the homepage
-{{ request.user.username }}
+
+<div class="jumbotron">
+        <h1>Welcome, {{ request.user.username }}</h1>
+        <p>100 top youtube videos</p>
+        <p>at you fingertips</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="{% url 'posts' %}">
+                Vids of the week
+            </a>
+        </p>
+</div>
 
 {% endblock %}
