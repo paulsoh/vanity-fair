@@ -1,11 +1,11 @@
-{% load staticfiles %}
+{% load pipeline %}
 <!DOCTYPE html>
+{% stylesheet 'hello' %}
+{% javascript 'hello_js' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} | Vanity Fair</title>
-    <link href="{% static "vanityfair/css/materialize.min.css" %}" rel="stylesheet">
-    <link href="{% static "vanityfair/css/main.css" %}" rel="stylesheet">
 </head>
 <body> 
     {% include 'partials/header.html' %}
@@ -14,7 +14,5 @@
         {% endblock %}
     </main>
     {% include 'partials/footer.html' %}
-    {% block js %}
-    {% endblock %}
 </body>
 </html>
