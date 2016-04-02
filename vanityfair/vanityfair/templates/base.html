@@ -1,11 +1,15 @@
 {% load pipeline %}
 <!DOCTYPE html>
-{% stylesheet 'hello' %}
-{% javascript 'hello_js' %}
+{% stylesheet 'vendor' %}
+{% stylesheet 'main' %}
+{% javascript 'vendor' %}
+{% javascript 'main' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} | Vanity Fair</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 </head>
 <body> 
     {% include 'partials/header.html' %}

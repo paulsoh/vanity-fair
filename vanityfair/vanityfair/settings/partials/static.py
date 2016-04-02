@@ -21,22 +21,37 @@ STATICFILES_FINDERS = (
 
 PIPELINE = {
     'STYLESHEETS': {
-        'hello': {
+        'vendor': {
             'source_filenames': (
-              'vanityfair/css/*.css',
+              'vanityfair/css/bootstrap.min.css',
             ),
-            'output_filename': 'css/hello.css',
-            'extra_context': {
-                'media': 'screen,projection',
-            },
+            'output_filename': 'css/vendor.css',
+        },
+        'main': {
+            'source_filenames': (
+              'vanityfair/css/application.sass',
+            ),
+            'output_filename': 'css/vanityfair.min.css',
         },
     },
+
     'JAVASCRIPT': {
-        'hello_js': {
+        'vendor': {
             'source_filenames': (
-              'vanityfair/js/*.js',
+              'vanityfair/js/jquery-1.12.2.min.js',
+              'vanityfair/js/bootstrap.min.js',
             ),
-            'output_filename': 'js/hello.js',
-        }
+            'output_filename': 'js/vendor.js',
+        },
+        'main': {
+            'source_filenames': (
+              'vanityfair/js/detail.js',
+            ),
+            'output_filename': 'js/main.js',
+        },
+    },
+
+    'COMPILERS': {
+        'pipeline.compilers.sass.SASSCompiler',
     }
 }
