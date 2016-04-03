@@ -11,9 +11,29 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL,
     )
 
-    image = models.ImageField(
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True,
+    )
+
+    """
+    User input form
+    """
+
+    content = models.TextField()
+
+    video_url = models.URLField(
         blank=True,
         null=True,
+    )
+
+    source_id = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
     )
 
     hash_id = models.CharField(
@@ -23,14 +43,9 @@ class Post(models.Model):
         unique=True,
     )
 
-    content = models.TextField()
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True,
+    thumbnail = models.ImageField(
+        blank=True,
+        null=True,
     )
 
     tag_set = models.ManyToManyField(
@@ -44,6 +59,16 @@ class Post(models.Model):
         related_name='like_post_set',
         through='Like',
     )
+
+    """
+    Get video id from original source
+    Currently only implemented for youtube
+    """
+    def get_source_id(self):
+        import re
+        reg_exp = "^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*"
+        match = re.search(reg_exp, self.video_url)
+        return match.group(2)
 
     def generate_hash_id(self):
         from vanityfair.utils import get_hash_id
