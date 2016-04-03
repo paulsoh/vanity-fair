@@ -8,3 +8,4 @@ raven
 django-pipeline
 django-storages-redux
 boto
+requests
