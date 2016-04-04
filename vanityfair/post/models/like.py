@@ -12,6 +12,21 @@ class Like(models.Model):
         'Post',
     )
 
+    LIKED = 'LI'
+    DISLIKED = 'DL'
+    WATCHED = 'WA'
+    POST_REACTION = (
+        (LIKED, 'Liked'),
+        (DISLIKED, 'Disliked'),
+        (WATCHED, 'Watched'),
+    )
+
+    reaction = models.CharField(
+        max_length=2,
+        choices=POST_REACTION,
+        default=WATCHED,
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
     )

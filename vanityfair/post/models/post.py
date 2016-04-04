@@ -60,6 +60,8 @@ class Post(models.Model):
         through='Like',
     )
 
+    social_score = models.IntegerField()
+
     """
     Get video id from original source
     Currently only implemented for youtube
@@ -94,3 +96,37 @@ class Post(models.Model):
                 'pk': self.id,
             }
         )
+
+    def get_likes(self):
+        return self.like_set.filter(reaction='LI')
+
+    @property
+    def get_likes_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_likes().count()/total*100
+
+    def get_dislikes(self):
+        return self.like_set.filter(reaction='DL')
+
+    @property
+    def get_dislikes_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_dislikes().count()/total*100
+
+    def get_watched(self):
+        return self.like_set.filter(reaction='WA')
+
+    @property
+    def get_watched_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_watched().count()/total*100
+
+    def calculate_social_score(self):
+        self.social_score = int(self.get_likes_percentage)
+        self.save()
