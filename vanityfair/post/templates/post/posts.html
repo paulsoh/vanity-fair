@@ -9,17 +9,13 @@ Observe posts
 
 {% block content %}
 
-<div class="list-title">
-    <h1>Top 100 of the week</h1>
-    
-</div>
 <div class="row">
 {% for post in posts %}
 <div class="col-sm-12 col-md-6">
 <div class="thumbnail">
-    {% if post.image %}
+    {% if post.thumbnail %}
     <a href="{% url 'post' post.id %}">
-    <img class="responsive-img card-image" src={{post.image.url}} alt="{{post.content}}"/>
+    <img class="responsive-img card-image" src={{post.thumbnail.url}} alt="{{post.content}}"/>
     </a>
     {% endif %}
     
