@@ -43,7 +43,7 @@ class Post(models.Model):
         unique=True,
     )
 
-    thumbnail = models.ImageField(
+    coverimage = models.ImageField(
         blank=True,
         null=True,
     )

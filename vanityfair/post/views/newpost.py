@@ -10,12 +10,12 @@ class PostCreateView(CreateView):
 
     fields = (
         'video_url',
-        'thumbnail',
+        'coverimage',
         'content',
     )
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        if self.request.FILES.get('thumnail', None):
-            form.instance.thumbnail = self.request.FILES['thumbnail']
+        if self.request.FILES.get('coverimage', None):
+            form.instance.coverimage = self.request.FILES['coverimage']
         return super(PostCreateView, self).form_valid(form)

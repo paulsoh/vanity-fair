@@ -17,7 +17,7 @@ def pre_save_post(sender, instance, *args, **kwargs):
 
 @receiver(pre_save, sender=Post)
 def pre_save_get_thumbnail_image(sender, instance, *args, **kwargs):
-    if not instance.thumbnail:
+    if not instance.coverimage:
         image_url = instance.get_source_id()
         image_src = "https://img.youtube.com/vi/{image_url}/maxresdefault.jpg".format(
             image_url=image_url,
@@ -27,4 +27,4 @@ def pre_save_get_thumbnail_image(sender, instance, *args, **kwargs):
         img_temp = NamedTemporaryFile(delete=True)
         img_temp.write(r.content)
         img_temp.flush()
-        instance.thumbnail.save(image_src, File(img_temp), save=False)
+        instance.coverimage.save(image_src, File(img_temp), save=False)

@@ -2,6 +2,7 @@
 
 {% load shortener %}
 {% load tagify %}
+{% load thumbnail %}
 
 {% block title %}  
 Observe posts
@@ -13,9 +14,9 @@ Observe posts
 {% for post in posts %}
 <div class="col-sm-12 col-md-6">
 <div class="thumbnail">
-    {% if post.thumbnail %}
+    {% if post.coverimage %}
     <a href="{% url 'post' post.id %}">
-    <img class="responsive-img card-image" src={{post.thumbnail.url}} alt="{{post.content}}"/>
+    <img class="responsive-img card-image" src={{post.coverimage.url}} alt="{{post.content}}"/>
     </a>
     {% endif %}
     
