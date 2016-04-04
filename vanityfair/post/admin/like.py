@@ -9,6 +9,7 @@ class LikeModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
         'user',
         'post',
+        'reaction',
 
         'created_at',
         'updated_at',
