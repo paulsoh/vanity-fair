@@ -25,11 +25,21 @@ Observe posts
             {{ post.content | tagify | safe }}
         </p>
     </div>
-    <div class="card-action">
-        <p>Liked by {{ post.like_user_set.count }}</p>
-        <p>
-        <a href="">LIKE!!</a>
-        </p>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width:{{post.get_likes_percentage}}%">
+            Liked by {{ post.get_likes.count }}
+        </div>
+        <div class="progress-bar progress-bar-warning" style="width:{{post.get_watched_percentage}}%">
+            So-so by {{ post.get_watched.count }}
+        </div>
+        <div class="progress-bar progress-bar-danger" style="width:{{post.get_dislikes_percentage}}%">
+            Disliked by {{ post.get_dislikes.count }}
+        </div>
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-default" href="{% url 'reaction' post.id 'like' %}">Like</a>
+        <a class="btn btn-default" href="{% url 'reaction' post.id 'dislike' %}">Dislike</a>
+        <a class="btn btn-default" href="{% url 'reaction' post.id 'watched' %}">So-so</a>
     </div>
 </div>
 </div>

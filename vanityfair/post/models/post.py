@@ -98,8 +98,29 @@ class Post(models.Model):
     def get_likes(self):
         return self.like_set.filter(reaction='LI')
 
+    @property
+    def get_likes_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_likes().count()/total*100
+
     def get_dislikes(self):
         return self.like_set.filter(reaction='DL')
 
+    @property
+    def get_dislikes_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_dislikes().count()/total*100
+
     def get_watched(self):
         return self.like_set.filter(reaction='WA')
+
+    @property
+    def get_watched_percentage(self):
+        total = self.like_set.count()
+        if total == 0:
+            return 0
+        return self.get_watched().count()/total*100

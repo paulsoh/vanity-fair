@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^posts/$', PostListView.as_view(), name="posts"),
     url(r'^posts/new/$', PostCreateView.as_view(), name="new-post"),
     url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="post"),
-    url(r'^posts/(?P<pk>\d+)/like/$', HomeTemplateView.as_view(), name="like"),
+    url(r'^posts/(?P<pk>\d+)/reaction/(?P<reaction>\w+)/$', HomeTemplateView.as_view(), name="reaction"),
 
 
     url(r'^tags/$', TagListView.as_view(), name="tags"),
