@@ -14,7 +14,8 @@ Observe posts
 <div class="col s8 push-s2">
 <div class="card">
     <div class="card-image">
-        <img class="responsive-img card-image" src={{post.image.url}} alt="{{post.content}}"/>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ post.source_id}}" frameborder="0" allowfullscreen></iframe>
+        <hr>
         <span class="card-title">
             Shared by {{ post.user.username }}
         </span>
