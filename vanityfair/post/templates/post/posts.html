@@ -26,7 +26,9 @@ Observe posts
                 {{ post.content | shortener | tagify | safe }}
         </p>
 
-        <p>Liked by {{ post.like_user_set.count }}</p>
+        <p>Liked by {{ post.get_likes.count }}</p>
+        <p>Disliked by {{ post.get_dislikes.count }}</p>
+        <p>Watched by {{ post.get_watched.count }}</p>
     
         <div class="btn-group" role="group">
             <a href="">

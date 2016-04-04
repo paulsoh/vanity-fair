@@ -94,3 +94,12 @@ class Post(models.Model):
                 'pk': self.id,
             }
         )
+
+    def get_likes(self):
+        return self.like_set.filter(reaction='LI')
+
+    def get_dislikes(self):
+        return self.like_set.filter(reaction='DL')
+
+    def get_watched(self):
+        return self.like_set.filter(reaction='WA')
