@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from post.models import Post
+from post.models import Post, Like
 from tag.models import Tag
 
 
@@ -22,3 +22,8 @@ def post_save_tags(sender, instance, created, **kwargs):
     for tag_name in tag_list:
         tag_object, is_tag_created = Tag.objects.get_or_create(name=tag_name)
         instance.tag_set.add(tag_object)
+
+
+@receiver(post_save, sender=Like)
+def post_save_like(sender, instance, created, **kwargs):
+    instance.post.calculate_social_score()

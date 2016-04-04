@@ -26,23 +26,16 @@ Observe posts
                 {{ post.content | shortener | tagify | safe }}
         </p>
 
-        <p>Liked by {{ post.get_likes.count }}</p>
-        <p>Disliked by {{ post.get_dislikes.count }}</p>
-        <p>Watched by {{ post.get_watched.count }}</p>
-    
-        <div class="btn-group" role="group">
-            <a href="">
-                <button class="btn btn-default">Like</button>
-            </a>
-            <a href="">
-                <button class="btn btn-default">Watched</button>
-            </a>
-            <a href="">
-                <button class="btn btn-default">Dislike</button>
-            </a>
-            <a href="">
-                <button class="btn btn-default">Save</button>
-            </a>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width:{{post.get_likes_percentage}}%">
+                {{ post.get_likes.count }}
+            </div>
+            <div class="progress-bar progress-bar-warning" style="width:{{post.get_watched_percentage}}%">
+                {{ post.get_watched.count }}
+            </div>
+            <div class="progress-bar progress-bar-danger" style="width:{{post.get_dislikes_percentage}}%">
+                {{ post.get_dislikes.count }}
+            </div>
         </div>
     </div>
 </div>

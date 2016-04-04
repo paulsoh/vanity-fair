@@ -10,6 +10,7 @@ class PostModelAdmin(admin.ModelAdmin):
         'user',
 
         'content',
+        'social_score',
 
         'created_at',
         'updated_at',
