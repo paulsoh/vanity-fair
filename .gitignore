@@ -75,3 +75,4 @@ db.sqlite3
 *.js
 *.map
 fonts/
+.sass-cache/
