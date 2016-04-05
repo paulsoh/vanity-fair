@@ -17,25 +17,22 @@ Observe posts
     {% if post.coverimage %}
     <a href="{% url 'post' post.id %}">
     <img class="responsive-img card-image" src={{post.coverimage.url}} alt="{{post.content}}"/>
-    </a>
     {% endif %}
     
     <div class="caption">
-        <h3>{{ post.user.username }}</h3>
-        <p>
+        <h1>
                 {{ post.content | shortener | tagify | safe }}
-        </p>
-
-        <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width:{{post.get_likes_percentage}}%">
-                {{ post.get_likes.count }}
-            </div>
-            <div class="progress-bar progress-bar-warning" style="width:{{post.get_watched_percentage}}%">
-                {{ post.get_watched.count }}
-            </div>
-            <div class="progress-bar progress-bar-danger" style="width:{{post.get_dislikes_percentage}}%">
-                {{ post.get_dislikes.count }}
-            </div>
+        </h1>
+    </div>
+    </a>
+</div>
+<div class="reaction">
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width:{{post.get_likes_percentage}}%">
+        </div>
+        <div class="progress-bar progress-bar-warning" style="width:{{post.get_watched_percentage}}%">
+        </div>
+        <div class="progress-bar progress-bar-danger" style="width:{{post.get_dislikes_percentage}}%">
         </div>
     </div>
 </div>
