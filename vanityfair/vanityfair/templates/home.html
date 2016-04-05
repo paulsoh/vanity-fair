@@ -3,15 +3,19 @@
 {% block title %}Homepage{% endblock %}
 {% block content %}
 
-<div class="jumbotron">
-        <h1>Welcome, {{ request.user.username }}</h1>
-        <p>100 top youtube videos</p>
-        <p>at you fingertips</p>
-        <p>
+<div class="jumbotron home" >
+    <img class="home-image" src="{{post.coverimage.url}}" alt="{{post.content}}">
+    <div class="home-caption">
+        <h1 class="home-logo">GOQUAL</h1>
+        <h2>고퀄리티 유투브 영상 저장소</h2>
             <a class="btn btn-primary btn-lg" href="{% url 'posts' %}">
-                Vids of the week
+                시작하기 
             </a>
-        </p>
+    </div>
+    <div class="hot-video">
+        <p>배경 이미지:{{post.content}}</p>
+    </div>
+    
 </div>
 
 {% endblock %}
