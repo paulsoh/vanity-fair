@@ -46,6 +46,7 @@ PIPELINE = {
         'main': {
             'source_filenames': (
               'vanityfair/js/detail.js',
+              'vanityfair/js/newvideo.js',
             ),
             'output_filename': 'js/main.js',
         },
@@ -55,3 +56,5 @@ PIPELINE = {
         'pipeline.compilers.sass.SASSCompiler',
     }
 }
+
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'

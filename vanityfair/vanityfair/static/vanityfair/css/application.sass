@@ -1,27 +1,158 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700)
-*
-  font-family: 'Open Sans', sans-serif
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css)
+
+*,h1,h2,h3,h4,p,a
+  font-family: 'Open Sans', 'Noto Sans KR', sans-serif
   font-weight: 300
+
+h1
+  font-size: 2em
 
 body
   padding:
-    top: 70px
+    top: 60px
 
-ul.contacts
-  &>a
-    margin:
-      right: 15px
+nav
+  background: white
+  &>ul.nav-pills
+    display: flex
+    align-content: stretch
+
+    &>li.dropdown
+      &>ul
+        text-transform: uppercase
+        &>li>a
+          font-weight: 300
+    &>li
+      max-width: 120px
+      flex-grow: 1
+      &>a
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 45px
+        color: #212121
+        text-align: center
+        padding: 10px
+        border-radius: 0
+        text-transform: uppercase
+        &.logo
+          font-size: 1.2em
+          color: #000000
+          letter-spacing: 0.3em
+nav>ul.nav-pills>li>a.dropdown-menu
+  font-family: 'Open Sans', 'Noto Sans KR', sans-serif
+  font-weight: 300
+// Home view styles 
+.jumbotron.home
+  &>img
+    width: 100%
+    transform: scale(1.2)
+    -webkit-filter: blur(5px) brightness(0.5)
+    filter: blur(5px) brightness(0.5)
+  overflow: hidden
+  position: relative
+  background: gray 
+  border-radius: 0
+  & .home-caption
+    position: absolute
+    color: white
+    margin-bottom: 0
+    padding: 0
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  & .hot-video
+    position: absolute
+    bottom: 0%
+    right: 0%
+    &>p
+      color: #DDDDDD
+      margin: 0
+      font-size: 0.7em
+  h1.home-logo
+    text-align: center
+    font-size: 2em
+    font-weight: 300
+    letter-spacing: 0.3em
+  h2
+    text-align: center
+    font-size: 1.2em
+  a
+    margin-top: 15px
+    position: relative
+    left: 50%
+    transform: translateX(-50%)
+    font:
+      size: 1.2em
+      weight: 300 
+    background: transparent
+    border:
+      color: white
+      radius: 0
+
+    &:hover
+      background: transparent
+
+// Footer
 
 footer
   margin-top: 100px
+  color: gray
+  display: flex
+  justify-content: center
+  align-items: center
+  &>ul.contacts
+    padding: 0      
+    width: 50%
+    display: flex
+    justify-content: space-around
+    &>a
+      color: gray
+      &:hover
+        text-decoration: none
+        color: gray
+
 
 form
   &>textarea
     resize: none
 
+// Thumbnail Styling
+
 div.thumbnail
   overflow: hidden
+  position: relative
+  border-radius: 0
+  margin-bottom: 0
+  border: 0
+  
   &>a>img
     transform: scale(1.2)
     -webkit-filter: blur(3px) brightness(0.9)
     filter: blur(3px) brightness(0.9)
+  & .caption
+    color: white
+    position: absolute
+    width: 80%
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    &>h1
+
+// Detail view
+.card
+  display: flex
+  flex-direction: column
+  align-items: center
+  & iframe.detail-video
+
+.card-title
+  font-size: 1.5em
+
+// Reaction
+.reaction
+  & .progress
+    height: 7px
+    border: 0
+    border-radius: 0px
