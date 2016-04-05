@@ -60,7 +60,9 @@ class Post(models.Model):
         through='Like',
     )
 
-    social_score = models.IntegerField()
+    social_score = models.IntegerField(
+        default=0,
+    )
 
     """
     Get video id from original source
