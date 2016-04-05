@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pipeline',
     'storages',
+    'sorl.thumbnail',
 
     'user',
     'tag',
